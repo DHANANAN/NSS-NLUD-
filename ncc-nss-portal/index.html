@@ -271,10 +271,17 @@
 </footer>
 
 <script>
-  // Loader
-  window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 600);
-  });
+  // Loader — hide on DOMContentLoaded, with hard timeout fallback
+  const __hideLoader = () => {
+    const l = document.getElementById('loader');
+    if (l) l.classList.add('hidden');
+  };
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(__hideLoader, 300);
+  } else {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(__hideLoader, 300));
+  }
+  setTimeout(__hideLoader, 2200);
 
   // Nav scroll
   const nav = document.getElementById('nav');

@@ -377,9 +377,16 @@
 </footer>
 
 <script>
-  window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 600);
-  });
+  const __hideLoader = () => {
+    const l = document.getElementById('loader');
+    if (l) l.classList.add('hidden');
+  };
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(__hideLoader, 300);
+  } else {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(__hideLoader, 300));
+  }
+  setTimeout(__hideLoader, 2200);
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 80);
