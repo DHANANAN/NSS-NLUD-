@@ -1,0 +1,7 @@
+{
+  "name": "nss-nlud",
+  "rewrites": [
+    { "source": "/", "destination": "/ncc-nss-portal/index.html" },
+    { "source": "/(.*)", "destination": "/ncc-nss-portal/$1" }
+  ]
+}
