@@ -1423,6 +1423,128 @@ a {
   .social-handle { font-size: 1.3rem; }
 }
 
+/* ---- Forewords ---- */
+.forewords {
+  padding: 140px 48px;
+  background: var(--bg-warm);
+  position: relative;
+  overflow: hidden;
+}
+.forewords::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(193,74,22,0.06), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(176,141,87,0.08), transparent 40%);
+}
+.forewords-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.foreword-head {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.foreword-head .eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.foreword-head h2 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.foreword-head h2 em { font-style: italic; color: var(--accent); }
+
+.foreword-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 60px;
+  align-items: center;
+  background: var(--paper);
+  padding: 56px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 36px;
+  transition: transform 0.7s var(--ease), box-shadow 0.7s var(--ease);
+}
+.foreword-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.foreword-card:nth-child(even) { grid-template-columns: 1fr 320px; }
+.foreword-card:nth-child(even) .foreword-portrait { order: 2; }
+
+.foreword-portrait {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 14px 40px rgba(10,15,36,0.18);
+}
+.foreword-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+.foreword-card:hover .foreword-portrait img { transform: scale(1.04); }
+
+.foreword-body { position: relative; }
+.foreword-mark {
+  font-family: var(--serif);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.25;
+  margin-bottom: -20px;
+}
+.foreword-name {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.foreword-role {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.foreword-quote {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 640px;
+}
+
+@media (max-width: 1000px) {
+  .forewords { padding: 80px 24px; }
+  .foreword-card,
+  .foreword-card:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 28px;
+  }
+  .foreword-card:nth-child(even) .foreword-portrait { order: 0; }
+  .foreword-portrait { max-width: 280px; aspect-ratio: 1/1; margin: 0 auto; }
+  .foreword-mark { font-size: 3.5rem; }
+}
+
 /* ---- Big serif call ---- */
 .big-call {
   padding: 140px 48px;

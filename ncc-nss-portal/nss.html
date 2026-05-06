@@ -226,16 +226,24 @@
 </footer>
 
 <script>
-  const __hideLoader = () => {
-    const l = document.getElementById('loader');
-    if (l) l.classList.add('hidden');
-  };
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    setTimeout(__hideLoader, 300);
-  } else {
-    document.addEventListener('DOMContentLoaded', () => setTimeout(__hideLoader, 300));
-  }
-  setTimeout(__hideLoader, 2200);
+  (function(){
+    const loader = document.getElementById('loader');
+    if (!loader) return;
+    if (sessionStorage.getItem('nss_loaded') === '1') {
+      loader.classList.add('hidden');
+      return;
+    }
+    const hide = () => {
+      loader.classList.add('hidden');
+      sessionStorage.setItem('nss_loaded', '1');
+    };
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(hide, 300);
+    } else {
+      document.addEventListener('DOMContentLoaded', () => setTimeout(hide, 300));
+    }
+    setTimeout(hide, 2200);
+  })();
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 80);
