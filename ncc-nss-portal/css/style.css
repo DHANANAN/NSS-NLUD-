@@ -76,39 +76,25 @@ a {
   color: var(--bg);
 }
 .loader-emblem {
-  width: 80px;
-  height: 80px;
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-  margin: 0 auto 20px;
-  position: relative;
-  animation: pulse 1.6s ease-in-out infinite;
-}
-.loader-emblem::before, .loader-emblem::after {
-  content: '';
-  position: absolute;
-  background: var(--accent);
-}
-.loader-emblem::before {
-  inset: 50% 0 0 0;
-  height: 2px;
-  transform: translateY(-50%);
-}
-.loader-emblem::after {
-  inset: 0 50% 0 0;
-  width: 2px;
-  transform: translateX(-50%);
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 26px;
+  background-image: url('../img/nss-logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  animation: nss-spin 2.4s linear infinite;
+  filter: drop-shadow(0 6px 24px rgba(232, 73, 30, 0.25));
 }
 .loader-text {
   font-family: var(--serif);
   font-size: 1.2rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  opacity: 0.7;
+  opacity: 0.75;
 }
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.15); opacity: 0.5; }
+@keyframes nss-spin {
+  to { transform: rotate(360deg); }
 }
 
 /* ===== CURSOR FOLLOWER (subtle) ===== */

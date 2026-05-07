@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="National Service Scheme">
+  <defs>
+    <path id="nssTop" d="M 28 100 A 72 72 0 0 1 172 100"/>
+    <path id="nssBot" d="M 172 100 A 72 72 0 0 1 28 100"/>
+  </defs>
+
+  <!-- Outer dark blue disc -->
+  <circle cx="100" cy="100" r="98" fill="#1f2363"/>
+
+  <!-- Thin white separator -->
+  <circle cx="100" cy="100" r="68" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+
+  <!-- Orange-red inner -->
+  <circle cx="100" cy="100" r="65" fill="#e8491e"/>
+
+  <!-- 8 spokes -->
+  <g stroke="#ffffff" stroke-width="7" stroke-linecap="round">
+    <line x1="100" y1="42" x2="100" y2="158"/>
+    <line x1="42" y1="100" x2="158" y2="100"/>
+    <line x1="59" y1="59" x2="141" y2="141"/>
+    <line x1="59" y1="141" x2="141" y2="59"/>
+  </g>
+
+  <!-- Hub -->
+  <circle cx="100" cy="100" r="9" fill="#ffffff"/>
+  <circle cx="100" cy="100" r="4" fill="#e8491e"/>
+
+  <!-- Mid-spoke dots -->
+  <g fill="#ffffff">
+    <circle cx="100" cy="70" r="3"/>
+    <circle cx="100" cy="130" r="3"/>
+    <circle cx="70" cy="100" r="3"/>
+    <circle cx="130" cy="100" r="3"/>
+    <circle cx="79" cy="79" r="3"/>
+    <circle cx="121" cy="121" r="3"/>
+    <circle cx="79" cy="121" r="3"/>
+    <circle cx="121" cy="79" r="3"/>
+  </g>
+
+  <!-- Side stars -->
+  <g fill="#ffffff">
+    <polygon points="14,100 16,106 22,106 17,110 19,116 14,112 9,116 11,110 6,106 12,106"/>
+    <polygon points="186,100 188,106 194,106 189,110 191,116 186,112 181,116 183,110 178,106 184,106"/>
+  </g>
+
+  <!-- Top text (Hindi) -->
+  <text fill="#ffffff" font-family="serif" font-size="11" font-weight="600" letter-spacing="3">
+    <textPath href="#nssTop" startOffset="50%" text-anchor="middle">राष्ट्रीय सेवा योजना</textPath>
+  </text>
+
+  <!-- Bottom text (English) -->
+  <text fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" letter-spacing="2">
+    <textPath href="#nssBot" startOffset="50%" text-anchor="middle">NATIONAL SERVICE SCHEME</textPath>
+  </text>
+</svg>
