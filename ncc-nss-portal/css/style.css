@@ -64,13 +64,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.8s var(--ease), visibility 0.8s var(--ease);
-  animation: loader-autohide 0s linear 3s forwards;
+  transition: opacity 0.5s var(--ease), visibility 0.5s var(--ease);
 }
-.loader.hidden { opacity: 0; visibility: hidden; }
-@keyframes loader-autohide {
-  to { opacity: 0; visibility: hidden; pointer-events: none; }
-}
+.loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader-content {
   text-align: center;
   color: var(--bg);

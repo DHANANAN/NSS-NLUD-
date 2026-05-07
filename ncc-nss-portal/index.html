@@ -77,7 +77,7 @@
 
     <article class="foreword-card reveal-up">
       <div class="foreword-portrait">
-        <img src="https://i.ibb.co/m5hzNHMC/krq-Z9zi-F.jpg" alt="Prof. (Dr.) G. S. Bajpai" loading="lazy">
+        <img src="https://i.ibb.co/5X2HgMSW/Jt-Pv-S28-D.jpg" alt="Prof. (Dr.) G. S. Bajpai" loading="lazy">
       </div>
       <div class="foreword-body">
         <div class="foreword-mark">&ldquo;</div>
@@ -101,7 +101,7 @@
 
     <article class="foreword-card reveal-up">
       <div class="foreword-portrait">
-        <img src="https://i.ibb.co/209SjdqS/O037G2SF.jpg" alt="Dr. Prem Chand" loading="lazy">
+        <img src="https://i.ibb.co/JFqM2mbG/Ao-Ybp-EWj.jpg" alt="Dr. Prem Chand" loading="lazy">
       </div>
       <div class="foreword-body">
         <div class="foreword-mark">&ldquo;</div>
@@ -327,24 +327,38 @@
 </footer>
 
 <script>
-  // Loader: skip on subsequent navigation within the same session
+  // Loader: show for 3s on initial load, and on every internal-link click
   (function(){
     const loader = document.getElementById('loader');
     if (!loader) return;
-    if (sessionStorage.getItem('nss_loaded') === '1') {
-      loader.classList.add('hidden');
-      return;
-    }
+
+    const show = () => {
+      loader.classList.remove('hidden');
+    };
     const hide = () => {
       loader.classList.add('hidden');
-      sessionStorage.setItem('nss_loaded', '1');
     };
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-      setTimeout(hide, 300);
-    } else {
-      document.addEventListener('DOMContentLoaded', () => setTimeout(hide, 300));
-    }
-    setTimeout(hide, 2200);
+
+    // Initial page load: keep loader visible for 3s
+    setTimeout(hide, 3000);
+
+    // Click any internal link → show loader 3s, then navigate
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href) return;
+      if (a.target === '_blank' || a.hasAttribute('download')) return;
+      if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#')) return;
+      if (/^https?:/i.test(href)) {
+        try {
+          if (new URL(href).origin !== window.location.origin) return;
+        } catch (_) { return; }
+      }
+      e.preventDefault();
+      show();
+      setTimeout(() => { window.location.href = href; }, 3000);
+    });
   })();
 
   const nav = document.getElementById('nav');
